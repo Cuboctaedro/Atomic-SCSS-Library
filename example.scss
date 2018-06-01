@@ -8,12 +8,12 @@
 
 // 4. Import base library
 
-@import "src/index";
+@import "atomic-scss-library/index";
 
 // 5. Import additional components
 
-@import "src/components/dropdown/dropdown";
-@import "src/components/slideshow/fade";
+@import "atomic-scss-library/components/dropdown/dropdown";
+@import "atomic-scss-library/components/slideshow/fade";
 
 // 6. @extend and other styles
 
@@ -26,28 +26,5 @@
 	height: 1px !important; 
 	width: 1px !important; 
 	overflow: hidden;
-}
-
-.wrapper {
-    margin: 0 auto;
-    min-width: rem(270px);
-    max-width: rem(400px);
-    @media #{map-get($global-media-queries, 'md__')} {
-        min-width: rem(540px);
-        max-width: rem(660px);
-    }
-    @media #{map-get($global-media-queries, 'lg__')} {
-        min-width: rem(810px);
-        max-width: rem(990px);
-    }
-    @media #{map-get($global-media-queries, 'xl__')} {
-        min-width: rem(1080px);
-        max-width: rem(1320px);
-    }
-}
-
-.animate {
-    transition: all 0.3s ;
-    transition-timing-function: ease-in ;
 }
 
