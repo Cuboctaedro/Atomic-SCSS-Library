@@ -1,0 +1,24 @@
+/*  =========================================================================
+    CLEAR
+    ========================================================================= */
+
+$local-clear-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'clear-',
+    'values': (
+        'left' : left,
+        'right': right,
+        'none' : none,
+        'both' : both
+    )
+);
+    
+
+@if global_variable_exists(global-clear-settings) {
+
+    $clear-settings: map-merge($local-clear-settings, $global-clear-settings);
+
+    @include writeClasses('clear', $clear-settings);
+
+}

@@ -1,0 +1,79 @@
+/*  =========================================================================
+    PADDING
+    ========================================================================= */
+
+$local-padding-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'padding-',
+    'values': $global-spacing-values
+);
+
+$local-padding-top-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'padding-top-',
+    'values': $global-spacing-values
+);
+
+$local-padding-right-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'padding-right-',
+    'values': $global-spacing-values
+);
+
+$local-padding-bottom-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'padding-bottom-',
+    'values': $global-spacing-values
+);
+
+$local-padding-left-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'padding-left-',
+    'values': $global-spacing-values
+);
+    
+
+@if global_variable_exists(global-padding-settings) {
+
+    $padding-settings: map-merge($local-padding-settings, $global-padding-settings);
+
+    @include writeClasses('padding', $padding-settings);
+
+}
+
+@if global_variable_exists(global-padding-top-settings) {
+
+    $padding-top-settings: map-merge($local-padding-top-settings, $global-padding-top-settings);
+
+    @include writeClasses('padding-top', $padding-top-settings);
+
+}
+
+@if global_variable_exists(global-padding-right-settings) {
+
+    $padding-right-settings: map-merge($local-padding-right-settings, $global-padding-right-settings);
+
+    @include writeClasses('padding-right', $padding-right-settings);
+
+}
+
+@if global_variable_exists(global-padding-bottom-settings) {
+
+    $padding-bottom-settings: map-merge($local-padding-bottom-settings, $global-padding-bottom-settings);
+
+    @include writeClasses('padding-bottom', $padding-bottom-settings);
+
+}
+
+@if global_variable_exists(global-padding-left-settings) {
+
+    $padding-left-settings: map-merge($local-padding-left-settings, $global-padding-left-settings);
+
+    @include writeClasses('padding-left', $padding-left-settings);
+
+}

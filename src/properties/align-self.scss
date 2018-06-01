@@ -1,0 +1,26 @@
+/*  =========================================================================
+    ALIGN SELF
+    ========================================================================= */
+
+$local-align-self-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'align-self-',
+    'values': (
+        'stretch'    : stretch,
+        'flex-start' : flex-start,
+        'flex-end'   : flex-end,
+        'center'     : center,
+        'baseline'   : baseline,
+        'auto'       : auto
+    )
+);
+
+
+@if global_variable_exists(global-align-self-settings) {
+
+    $align-self-settings: map-merge($local-align-self-settings, $global-align-self-settings);
+
+    @include writeClasses('align-self', $align-self-settings);
+
+}

@@ -1,0 +1,28 @@
+/*  =========================================================================
+    FONT WEIGHT
+    ========================================================================= */
+
+$local-font-weight-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'font-weight-',
+    'values': (
+        '100'  : 100,
+        '200'  : 200,
+        '300'  : 300,
+        '400'  : 400,
+        '500'  : 500,
+        '600'  : 600,
+        '700'  : 700,
+        '800'  : 800,
+        '900'  : 900
+    )
+);
+
+@if global_variable_exists(global-font-weight-settings) {
+
+    $font-weight-settings: map-merge($local-font-weight-settings, $global-font-weight-settings);
+
+    @include writeClasses('font-weight', $font-weight-settings);
+
+}

@@ -1,0 +1,22 @@
+/*  =========================================================================
+    FONT FAMILY
+    ========================================================================= */
+
+$local-font-family-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'font-family-',
+    'values': (
+        'sans'  : unquote("'Alegreya Sans', Arial, sans-serif"),
+        'serif' : unquote("'Alegreya', Georgia, serif"),
+        'mono'  : unquote("'Courier New', Courier, monospace"),
+    )
+);
+
+@if global_variable_exists(global-font-family-settings) {
+
+    $font-family-settings: map-merge($local-font-family-settings, $global-font-family-settings);
+
+    @include writeClasses('font-family', $font-family-settings);
+
+}

@@ -1,0 +1,22 @@
+/*  =========================================================================
+    LETTER SPACING
+    ========================================================================= */
+
+$local-letter-spacing-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'letter-spacing-',
+    'values': (
+        'tight'  : -0.05em,
+        'normal' : 0,
+        'loose'  : 1px
+    )
+);
+
+@if global_variable_exists(global-letter-spacing-settings) {
+
+    $letter-spacing-settings: map-merge($local-letter-spacing-settings, $global-letter-spacing-settings);
+
+    @include writeClasses('letter-spacing', $letter-spacing-settings);
+
+}

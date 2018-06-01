@@ -1,0 +1,86 @@
+/*  =========================================================================
+    ASPECT RATIO
+    ========================================================================= */
+
+$local-aspect-ratio-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ratio-',
+    'values': (
+        'square'         : 1,
+        'gold'           : 0.618,
+        'silver'         : 0.4142,
+        '3by4'           : 0.75
+    )
+);
+
+
+
+@if global_variable_exists(global-aspect-ratio-settings) {
+
+    $aspect-ratio-settings: map-merge($local-aspect-ratio-settings, $global-aspect-ratio-settings);
+
+    @each $key, $value in map-get($aspect-ratio-settings, 'values') {
+
+        .#{map-get($aspect-ratio-settings, 'classname')}#{$key} {
+            overflow: hidden;
+            height: 0;
+            padding-top: $value * 100%;
+        }
+
+        @if map-get($aspect-ratio-settings, 'responsive') == true {
+
+            @each $querykey, $queryval in $global-media-queries {
+
+                @media #{$queryval} {
+
+                    @if $global-media-query-postfix ==true {
+
+                        .#{map-get($aspect-ratio-settings, 'classname')}#{$key}#{$querykey} {
+                            overflow: hidden;
+                            height: 0;
+                            padding-top: $value * 100%;
+                        }
+
+                    } @else {
+
+                        .#{$querykey}#{map-get($aspect-ratio-settings, 'classname')}#{$key} {
+                            overflow: hidden;
+                            height: 0;
+                            padding-top: $value * 100%;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        @if map-get($aspect-ratio-settings, 'hover') == true {
+
+            @if $global-hover-postfix == true {
+
+                .#{map-get($aspect-ratio-settings, 'classname')}#{$key}#{$global-hover-identifier} {
+                    overflow: hidden;
+                    height: 0;
+                    padding-top: $value * 100%;
+                }
+
+            } @else {
+
+                .#{$global-hover-identifier}#{map-get($aspect-ratio-settings, 'classname')}#{$key} {
+                    overflow: hidden;
+                    height: 0;
+                    padding-top: $value * 100%;
+                }
+
+            }
+
+        }
+
+    }
+
+
+}

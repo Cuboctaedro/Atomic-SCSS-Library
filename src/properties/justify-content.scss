@@ -1,0 +1,25 @@
+/*  =========================================================================
+    JUSTIFY CONTENT
+    ========================================================================= */
+
+$local-justify-content-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'justify-content-',
+    'values': (
+        'center'  : center,
+        'start'   : flex-start,
+        'end'     : flex-end,
+        'between' : space-between,
+        'around'  : space-around
+    )
+);
+
+
+@if global_variable_exists(global-justify-content-settings) {
+
+    $justify-content-settings: map-merge($local-justify-content-settings, $global-justify-content-settings);
+
+    @include writeClasses('justify-content', $justify-content-settings);
+
+}

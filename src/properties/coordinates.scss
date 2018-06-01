@@ -1,0 +1,64 @@
+/*  =========================================================================
+    COORDINATES
+    ========================================================================= */
+
+$local-top-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'top-',
+    'values': $global-spacing-values
+);
+
+$local-right-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'right-',
+    'values': $global-spacing-values
+);
+
+$local-bottom-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bottom-',
+    'values': $global-spacing-values
+);
+
+$local-left-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'left-',
+    'values': $global-spacing-values
+);
+
+
+@if global_variable_exists(global-top-settings) {
+
+    $top-settings: map-merge($local-top-settings, $global-top-settings);
+
+    @include writeClasses('top', $top-settings);
+
+}
+
+@if global_variable_exists(global-right-settings) {
+
+    $right-settings: map-merge($local-right-settings, $global-right-settings);
+
+    @include writeClasses('right', $right-settings);
+
+}
+
+@if global_variable_exists(global-bottom-settings) {
+
+    $bottom-settings: map-merge($local-bottom-settings, $global-bottom-settings);
+
+    @include writeClasses('bottom', $bottom-settings);
+
+}
+
+@if global_variable_exists(global-left-settings) {
+
+    $left-settings: map-merge($local-left-settings, $global-left-settings);
+
+    @include writeClasses('left', $left-settings);
+
+}

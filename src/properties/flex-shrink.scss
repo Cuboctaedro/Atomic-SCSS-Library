@@ -1,0 +1,24 @@
+/*  =========================================================================
+    FLEX SHRINK
+    ========================================================================= */
+
+$local-flex-shrink-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'flex-shrink-',
+    'values': (
+        '0' : 0,
+        '1' : 1,
+        '2' : 2
+    )
+);
+
+
+
+@if global_variable_exists(global-flex-shrink-settings) {
+
+    $flex-shrink-settings: map-merge($local-flex-shrink-settings, $global-flex-shrink-settings);
+
+    @include writeClasses('flex-shrink', $flex-shrink-settings);
+
+}

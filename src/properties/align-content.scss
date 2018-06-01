@@ -1,0 +1,25 @@
+/*  =========================================================================
+    ALIGN CONTENT
+    ========================================================================= */
+
+$local-align-content-settings: (
+    'responsive'  : false,
+    'hover'       : false,
+    'classname'   : 'align-content-',
+    'values': (
+        'stretch'       : stretch,
+        'flex-start'    : flex-start,
+        'flex-end'      : flex-end,
+        'space-between' : space-between,
+        'space-around'  : space-around
+    )
+);
+
+
+@if global_variable_exists(global-align-content-settings) {
+
+    $align-content-settings: map-merge($local-align-content-settings, $global-align-content-settings);
+
+    @include writeClasses('align-content', $align-content-settings);
+
+}

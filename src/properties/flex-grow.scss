@@ -1,0 +1,24 @@
+/*  =========================================================================
+    FLEX GROW
+    ========================================================================= */
+
+$local-flex-grow-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'flex-grow-',
+    'values': (
+        '0' : 0,
+        '1' : 1,
+        '2' : 2
+    )
+);
+
+
+
+@if global_variable_exists(global-flex-grow-settings) {
+
+    $flex-grow-settings: map-merge($local-flex-grow-settings, $global-flex-grow-settings);
+
+    @include writeClasses('flex-grow', $flex-grow-settings);
+
+}

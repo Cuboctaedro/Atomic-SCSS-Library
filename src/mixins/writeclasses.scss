@@ -1,0 +1,67 @@
+@mixin writeClasses($property, $settings) {
+
+    @each $key, $value in map-get($settings, 'values') {
+
+        .#{map-get($settings, 'classname')}#{$key} {
+            #{$property}: rem($value);
+        }
+    
+    }
+
+    @if map-get($settings, 'responsive') == true {
+
+        @each $querykey, $queryval in $global-media-queries {
+
+            @media #{$queryval} {
+
+                @each $key, $value in map-get($settings, 'values') {
+
+                    @if $global-media-query-postfix ==true {
+
+                        .#{map-get($settings, 'classname')}#{$key}#{$querykey} {
+                            #{$property}: rem($value);
+                        }
+
+                    } @else {
+
+                        .#{$querykey}#{map-get($settings, 'classname')}#{$key} {
+                            #{$property}: rem($value);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    @if map-get($settings, 'hover') == true {
+
+        @if $global-hover-postfix == true {
+
+            @each $key, $value in map-get($settings, 'values') {
+
+                .#{map-get($settings, 'classname')}#{$key}#{$global-hover-identifier}:hover {
+                    #{$property}: rem($value);
+                }
+            
+            }
+
+        } @else {
+
+            @each $key, $value in map-get($settings, 'values') {
+
+                .#{$global-hover-identifier}#{map-get($settings, 'classname')}#{$key}:hover {
+                    #{$property}: rem($value);
+                }
+            
+            }
+
+        }
+
+    }
+
+}

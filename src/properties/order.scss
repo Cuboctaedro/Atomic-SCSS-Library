@@ -1,0 +1,26 @@
+/*  =========================================================================
+    ORDER
+    ========================================================================= */
+
+$local-order-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'order-',
+    'values': (
+        '-99' : -99,
+        '-2'  : -2,
+        '-1'  : -1,
+        '0'   : 0,
+        '1'   : 1,
+        '2'   : 2,
+        '99'  : 99
+    )
+);
+
+@if global_variable_exists(global-order-settings) {
+
+    $order-settings: map-merge($local-order-settings, $global-order-settings);
+
+    @include writeClasses('order', $order-settings);
+
+}

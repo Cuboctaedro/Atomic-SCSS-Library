@@ -1,0 +1,19 @@
+/*  =========================================================================
+    BACKGROUND COLOR
+    ========================================================================= */
+
+$local-background-color-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'background-color-',
+    'values': $global-color-values
+);
+
+
+@if global_variable_exists(global-background-color-settings) {
+
+    $background-color-settings: map-merge($local-background-color-settings, $global-background-color-settings);
+
+    @include writeClasses('background-color', $background-color-settings);
+
+}

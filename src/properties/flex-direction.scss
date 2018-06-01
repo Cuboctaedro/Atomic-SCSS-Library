@@ -1,0 +1,25 @@
+/*  =========================================================================
+    FLEX DIRECTION
+    ========================================================================= */
+
+$local-flex-direction-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'flex-direction-',
+    'values': (
+        'row'            : row,
+        'row-reverse'    : row-reverse,
+        'col'            : column,
+        'column-reverse' : column-reverse
+    )
+);
+
+
+
+@if global_variable_exists(global-flex-direction-settings) {
+
+    $flex-direction-settings: map-merge($local-flex-direction-settings, $global-flex-direction-settings);
+
+    @include writeClasses('flex-direction', $flex-direction-settings);
+
+}

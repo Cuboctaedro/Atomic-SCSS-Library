@@ -1,0 +1,27 @@
+/*  =========================================================================
+    DISPLAY
+    ========================================================================= */
+
+$local-display-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'display-',
+    'values': (
+        'block'         : block,
+        'inline'        : inline,
+        'iinline-block' : inline-block,
+        'flex'          : flex,
+        'grid'          : grid,
+        'none'          : none
+    )
+);
+
+
+
+@if global_variable_exists(global-display-settings) {
+
+    $display-settings: map-merge($local-display-settings, $global-display-settings);
+
+    @include writeClasses('display', $display-settings);
+
+}

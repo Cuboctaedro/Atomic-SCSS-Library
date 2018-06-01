@@ -1,0 +1,63 @@
+/*  =========================================================================
+    HEIGHT
+    ========================================================================= */
+
+$local-height-values: (
+    '0'       : 0,
+    '1'      : 1px,
+    '1of4'    : 25%,
+    '1of3'    : 33.3333%,
+    '1of2'    : 50%,
+    '2of3'    : 66.6666%,
+    '3of4'    : 75%,
+    'full'    : 100%,
+    'auto'    : auto,
+    'screen'  : 100vh,
+);
+
+$local-height-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'height-',
+    'values': $local-height-values
+);
+
+$local-min-height-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'min-height-',
+    'values': $local-height-values
+);
+
+$local-max-height-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'max-height-',
+    'values': $local-height-values
+);
+
+
+@if global_variable_exists(global-height-settings) {
+
+    $height-settings: map-merge($local-height-settings, $global-height-settings);
+
+    @include writeClasses('height', $height-settings);
+
+}
+
+
+@if global_variable_exists(global-min-height-settings) {
+
+    $min-height-settings: map-merge($local-min-height-settings, $global-min-height-settings);
+
+    @include writeClasses('min-height', $min-height-settings);
+
+}
+
+@if global_variable_exists(global-max-height-settings) {
+
+    $max-height-settings: map-merge($local-max-height-settings, $global-max-height-settings);
+
+    @include writeClasses('max-height', $max-height-settings);
+
+}

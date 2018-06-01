@@ -1,0 +1,56 @@
+/*  =========================================================================
+    OVERFLOW
+    ========================================================================= */
+
+$local-overflow-values: (
+    'visible' : visible,
+    'hidden'  : hidden,
+    'scroll'  : scroll,
+    'auto'    : auto
+);
+
+$local-overflow-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'overflow-',
+    'values': $local-overflow-values
+);
+
+$local-overflow-x-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'overflow-x-',
+    'values': $local-overflow-values
+);
+
+$local-overflow-y-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'overflow-y-',
+    'values': $local-overflow-values
+);
+
+
+@if global_variable_exists(global-overflow-settings) {
+
+    $overflow-settings: map-merge($local-overflow-settings, $global-overflow-settings);
+
+    @include writeClasses('overflow', $overflow-settings);
+
+}
+
+@if global_variable_exists(global-overflow-x-settings) {
+
+    $overflow-x-settings: map-merge($local-overflow-x-settings, $global-overflow-x-settings);
+
+    @include writeClasses('overflow-x', $overflow-x-settings);
+
+}
+
+@if global_variable_exists(global-overflow-y-settings) {
+
+    $overflow-y-settings: map-merge($local-overflow-y-settings, $global-overflow-y-settings);
+
+    @include writeClasses('overflow-y', $overflow-y-settings);
+
+}

@@ -1,0 +1,23 @@
+/*  =========================================================================
+    FLEX WRAP
+    ========================================================================= */
+
+$local-flex-wrap-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'flex-wrap-',
+    'values': (
+        'nowrap'  : nowrap,
+        'wrap'    : wrap,
+        'reverse' : wrap-reverse
+    )
+);
+
+
+@if global_variable_exists(global-flex-wrap-settings) {
+
+    $flex-wrap-settings: map-merge($local-flex-wrap-settings, $global-flex-wrap-settings);
+
+    @include writeClasses('flex-wrap', $flex-wrap-settings);
+
+}

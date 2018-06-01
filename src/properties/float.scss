@@ -1,0 +1,22 @@
+/*  =========================================================================
+    FLOAT
+    ========================================================================= */
+
+$local-float-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'float-',
+    'values': ( 
+        'left' : left,
+        'right': right,
+        'none' : none
+    )
+);
+
+@if global_variable_exists(global-float-settings) {
+
+    $float-settings: map-merge($local-float-settings, $global-float-settings);
+
+    @include writeClasses('float', $float-settings);
+
+}

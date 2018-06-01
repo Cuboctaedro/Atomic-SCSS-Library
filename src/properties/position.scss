@@ -1,0 +1,24 @@
+/*  =========================================================================
+    POSITION
+    ========================================================================= */
+
+$local-position-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'position-',
+    'values': (
+        'absolute' : absolute,
+        'relative' : relative,
+        'static'   : static,
+        'fixed'    : fixed
+    )
+);
+
+
+@if global_variable_exists(global-position-settings) {
+
+    $position-settings: map-merge($local-position-settings, $global-position-settings);
+
+    @include writeClasses('position', $position-settings);
+
+}

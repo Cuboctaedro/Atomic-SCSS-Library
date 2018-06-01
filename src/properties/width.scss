@@ -1,0 +1,61 @@
+/*  =========================================================================
+    WIDTH
+    ========================================================================= */
+
+$local-width-values: (
+    '0'       : 0,
+    '1'      : 1px,
+    '1of4'    : 25%,
+    '1of3'    : 33.3333%,
+    '1of2'    : 50%,
+    '2of3'    : 66.6666%,
+    '3of4'    : 75%,
+    'full'    : 100%,
+    'auto'    : auto,
+    'screen'  : 100vh,
+);
+
+$local-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'width-',
+    'values': $local-width-values
+);
+
+$local-min-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'min-width-',
+    'values': $local-width-values
+);
+
+$local-max-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'max-width-',
+    'values': $local-width-values
+);
+
+@if global_variable_exists(global-width-settings) {
+
+    $width-settings: map-merge($local-width-settings, $global-width-settings);
+
+    @include writeClasses('width', $width-settings);
+
+}
+
+@if global_variable_exists(global-min-width-settings) {
+
+    $min-width-settings: map-merge($local-min-width-settings, $global-min-width-settings);
+
+    @include writeClasses('min-width', $min-width-settings);
+
+}
+
+@if global_variable_exists(global-max-width-settings) {
+
+    $max-width-settings: map-merge($local-max-width-settings, $global-max-width-settings);
+
+    @include writeClasses('max-width', $max-width-settings);
+
+}

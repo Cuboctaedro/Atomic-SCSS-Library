@@ -1,0 +1,23 @@
+/*  =========================================================================
+    BACKGROUND SIZE
+    ========================================================================= */
+
+$local-background-size-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'background-size-',
+    'values': (
+        'contain'  : contain,
+        'cover'    : cover,
+        'auto'     : auto
+    )
+);
+
+
+@if global_variable_exists(global-background-size-settings) {
+
+    $background-size-settings: map-merge($local-background-size-settings, $global-background-size-settings);
+
+    @include writeClasses('background-size', $background-size-settings);
+
+}

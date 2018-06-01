@@ -1,0 +1,20 @@
+/*  =========================================================================
+    BORDER COLOR
+    ========================================================================= */
+
+$local-border-color-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'bo-c-',
+    'values': $global-color-values
+);
+
+
+
+@if global_variable_exists(global-border-color-settings) {
+
+    $border-color-settings: map-merge($local-border-color-settings, $global-border-color-settings);
+
+    @include writeClasses('border-color', $border-color-settings);
+
+}

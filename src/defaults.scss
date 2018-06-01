@@ -1,0 +1,49 @@
+/*  =========================================================================
+    GLOBAL
+    ========================================================================= */
+
+// Media queries
+$global-media-queries: (
+    'sm__': 'screen and (min-width: 30em)',
+    'md__': 'screen and (min-width: 40em)',
+    'lg__': 'screen and (min-width: 60em)',
+    'xl__': 'screen and (min-width: 80em)'
+) !default;
+
+// Media query postfix or prefix
+$global-media-query-postfix    : false !default;
+// Hover
+$global-hover-postfix          : false !default;
+$global-hover-identifier       : 'h__' !default;
+
+
+// Colors
+$global-color-values: (
+    'black'        : #000,
+    'white'        : #fff,
+    'transparent'  : transparent
+) !default;
+
+// Margins and Paddinga
+$global-spacing-values: (
+    'auto'    : auto,
+    '0'       : 0,
+    '1'       : 1px,
+    '5'       : 5px,
+    '10'      : 10px,
+    '15'      : 15px,
+    '20'      : 20px,
+    '25'      : 25px,
+    '30'      : 30px,
+    '40'      : 40px,
+    '50'      : 50px,
+    '75'      : 75px,
+    '100'     : 100px,
+    '125'     : 125px,
+    '1of4'    : 25%,
+    '1of3'    : 33.3333%,
+    '1of2'    : 50%,
+    '2of3'    : 66.6666%,
+    '3of4'    : 75%,
+    'full'    : 100%
+) !default;

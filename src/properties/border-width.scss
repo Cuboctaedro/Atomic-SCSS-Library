@@ -1,0 +1,85 @@
+/*  =========================================================================
+    BORDER WIDTH
+    ========================================================================= */
+
+$local-border-width-values: (
+    '0'       : 0,
+    '1'       : 1px,
+    '2 '      : 2px
+);
+
+$local-border-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bo-w-',
+    'values': $local-border-width-values
+);
+
+$local-border-top-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bot-w-',
+    'values': $local-border-width-values
+);
+
+$local-border-right-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bor-w-',
+    'values': $local-border-width-values
+);
+
+$local-border-bottom-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bob-w-',
+    'values': $local-border-width-values
+);
+
+$local-border-left-width-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bol-w-',
+    'values': $local-border-width-values
+);
+
+
+@if global_variable_exists(global-border-width-settings) {
+
+    $border-width-settings: map-merge($local-border-width-settings, $global-border-width-settings);
+
+    @include writeClasses('border-width', $border-width-settings);
+
+}
+
+@if global_variable_exists(global-border-top-width-settings) {
+
+    $border-top-width-settings: map-merge($local-border-top-width-settings, $global-border-top-width-settings);
+
+    @include writeClasses('border-top-width', $border-top-width-settings);
+
+}
+
+@if global_variable_exists(global-border-right-width-settings) {
+
+    $border-right-width-settings: map-merge($local-border-right-width-settings, $global-border-right-width-settings);
+
+    @include writeClasses('border-right-width', $border-right-width-settings);
+
+}
+
+@if global_variable_exists(global-border-bottom-width-settings) {
+
+    $border-bottom-width-settings: map-merge($local-border-bottom-width-settings, $global-border-bottom-width-settings);
+
+    @include writeClasses('border-bottom-width', $border-bottom-width-settings);
+
+}
+
+@if global_variable_exists(global-border-left-width-settings) {
+
+    $border-left-width-settings: map-merge($local-border-left-width-settings, $global-border-left-width-settings);
+
+    @include writeClasses('border-left-width', $border-left-width-settings);
+
+}

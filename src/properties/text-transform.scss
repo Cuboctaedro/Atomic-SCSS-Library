@@ -1,0 +1,24 @@
+/*  =========================================================================
+    TEXT TRASNFORM
+    ========================================================================= */
+
+$local-text-transform-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'text-transform-',
+    'values': (
+        'capital': capitalize,
+        'upper'  : uppercase,
+        'lower'  : lowercase,
+        'none'   : none
+    )
+);
+
+
+@if global_variable_exists(global-text-transform-settings) {
+
+    $text-transform-settings: map-merge($local-text-transform-settings, $global-text-transform-settings);
+
+    @include writeClasses('text-transform', $text-transform-settings);
+
+}

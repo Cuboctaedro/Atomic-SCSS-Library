@@ -1,0 +1,79 @@
+/*  =========================================================================
+    MARGIN
+    ========================================================================= */
+
+$local-margin-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'margin-',
+    'values': $global-spacing-values
+);
+
+$local-margin-top-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'margin-top-',
+    'values': $global-spacing-values
+);
+
+$local-margin-right-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'margin-right-',
+    'values': $global-spacing-values
+);
+
+$local-margin-bottom-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'margin-bottom-',
+    'values': $global-spacing-values
+);
+
+$local-margin-left-settings: (
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'margin-left-',
+    'values': $global-spacing-values
+);
+    
+
+@if global_variable_exists(global-margin-settings) {
+
+    $margin-settings: map-merge($local-margin-settings, $global-margin-settings);
+
+    @include writeClasses('margin', $margin-settings);
+
+}
+
+@if global_variable_exists(global-margin-top-settings) {
+
+    $margin-top-settings: map-merge($local-margin-top-settings, $global-margin-top-settings);
+
+    @include writeClasses('margin-top', $margin-top-settings);
+
+}
+
+@if global_variable_exists(global-margin-right-settings) {
+
+    $margin-right-settings: map-merge($local-margin-right-settings, $global-margin-right-settings);
+
+    @include writeClasses('margin-right', $margin-right-settings);
+
+}
+
+@if global_variable_exists(global-margin-bottom-settings) {
+
+    $margin-bottom-settings: map-merge($local-margin-bottom-settings, $global-margin-bottom-settings);
+
+    @include writeClasses('margin-bottom', $margin-bottom-settings);
+
+}
+
+@if global_variable_exists(global-margin-left-settings) {
+
+    $margin-left-settings: map-merge($local-margin-left-settings, $global-margin-left-settings);
+
+    @include writeClasses('margin-left', $margin-left-settings);
+
+}

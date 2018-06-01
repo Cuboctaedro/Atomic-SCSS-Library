@@ -1,0 +1,24 @@
+/*  =========================================================================
+    BACKGROUND REPEAT
+    ========================================================================= */
+
+$local-background-repeat-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'background-repeat-',
+    'values': (
+        'no'          : no-repeat,
+        'x'           : repeat-x,
+        'y'           : repeat-y,
+        'rep'         : repeat
+    )
+);
+
+
+@if global_variable_exists(global-background-repeat-settings) {
+
+    $background-repeat-settings: map-merge($local-background-repeat-settings, $global-background-repeat-settings);
+
+    @include writeClasses('background-repeat', $background-repeat-settings);
+
+}

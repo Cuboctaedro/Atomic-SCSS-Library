@@ -1,0 +1,21 @@
+/*  =========================================================================
+    FONT VARIANT
+    ========================================================================= */
+
+$local-font-variant-settings: (
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'font-variant-',
+    'values': (
+        'small-caps' : small-caps,
+        'normal'     : normal
+    )
+);
+
+@if global_variable_exists(global-font-variant-settings) {
+
+    $font-variant-settings: map-merge($local-font-variant-settings, $global-font-variant-settings);
+
+    @include writeClasses('font-variant', $font-variant-settings);
+
+}

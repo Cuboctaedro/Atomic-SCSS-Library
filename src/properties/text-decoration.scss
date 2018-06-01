@@ -1,0 +1,23 @@
+/*  =========================================================================
+    TEXT DECORATION
+    ========================================================================= */
+
+$local-text-decoration-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'text-decoration-',
+    'values': (
+        'none'    : none,
+        'under'   : underline,
+        'strike'  : line-through
+    )
+);
+
+
+@if global_variable_exists(global-text-decoration-settings) {
+
+    $text-decoration-settings: map-merge($local-text-decoration-settings, $global-text-decoration-settings);
+
+    @include writeClasses('text-decoration', $text-decoration-settings);
+
+}

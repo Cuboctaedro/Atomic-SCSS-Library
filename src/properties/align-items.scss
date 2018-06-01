@@ -1,0 +1,24 @@
+/*  =========================================================================
+    ALIGN ITEMS
+    ========================================================================= */
+
+$local-align-items-settings: (
+    'responsive'  : true,
+    'hover'       : false,
+    'classname'   : 'align-items-',
+    'values': (
+        'stretch'      : stretch,
+        'flex-start'   : flex-start,
+        'flex-end'     : flex-end,
+        'center'       : center,
+        'baseline'     : baseline
+    )
+);
+
+@if global_variable_exists(global-align-items-settings) {
+
+    $align-items-settings: map-merge($local-align-items-settings, $global-align-items-settings);
+
+    @include writeClasses('align-items', $align-items-settings);
+
+}

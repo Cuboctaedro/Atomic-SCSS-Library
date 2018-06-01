@@ -1,0 +1,88 @@
+/*  =========================================================================
+    BORDER STYLE
+    ========================================================================= */
+
+$local-border-style-values: (
+    'none': none,
+    'hidden': hidden,
+    'dotted': dotted,
+    'dashed': dashed,
+    'solid': solid
+);
+
+$local-border-style-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'border-style-',
+    'values': $local-border-style-values
+);
+
+$local-border-top-style-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'border-top-style-',
+    'values': $local-border-style-values
+);
+
+$local-border-right-style-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'border-right-style-',
+    'values': $local-border-style-values
+);
+
+$local-border-bottom-style-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'border-bottom-style-',
+    'values': $local-border-style-values
+);
+
+$local-border-left-style-settings: (
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'border-left-style-',
+    'values': $local-border-style-values
+);
+    
+
+
+@if global_variable_exists(global-border-style-settings) {
+
+    $border-style-settings: map-merge($local-border-style-settings, $global-border-style-settings);
+
+    @include writeClasses('border-style', $border-style-settings);
+
+}
+
+@if global_variable_exists(global-border-top-style-settings) {
+
+    $border-top-style-settings: map-merge($local-border-top-style-settings, $global-border-top-style-settings);
+
+    @include writeClasses('border-top-style', $border-top-style-settings);
+
+}
+
+@if global_variable_exists(global-border-right-style-settings) {
+
+    $border-right-style-settings: map-merge($local-border-right-style-settings, $global-border-right-style-settings);
+
+    @include writeClasses('border-right-style', $border-right-style-settings);
+
+}
+
+@if global_variable_exists(global-border-bottom-style-settings) {
+
+    $border-bottom-style-settings: map-merge($local-border-bottom-style-settings, $global-border-bottom-style-settings);
+
+    @include writeClasses('border-bottom-style', $border-bottom-style-settings);
+
+}
+
+@if global_variable_exists(global-border-left-style-settings) {
+
+    $border-left-style-settings: map-merge($local-border-left-style-settings, $global-border-left-style-settings);
+
+    @include writeClasses('border-left-style', $border-left-style-settings);
+
+}
